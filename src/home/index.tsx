@@ -10,6 +10,8 @@ function Home() {
   const handleDay = (day: string): void => setDay(day);
 
   const handleSubmit = () => {
+    if (!day) return;
+
     Router.push(`/detail?day=${day}`, `/detail?day=${day}`);
   };
 

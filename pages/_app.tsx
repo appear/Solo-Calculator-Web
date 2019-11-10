@@ -24,10 +24,7 @@ class MyApp extends App<MyAppProps> {
           <meta property="og:url" content="" />
           <meta property="og:type" content="website" />
           <meta property="og:locale" content="ko_KR" />
-          <meta
-            property="og:image"
-            content="https://assets.triple.guide/images/default-cover-image.jpg"
-          />
+          <meta property="og:image" content="" />
           <meta property="og:description" content="솔로 계산기" />
           <title>솔로 계산기</title>
         </Head>
