@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import * as CSS from "csstype";
 
 export default createGlobalStyle`html,
 body,
