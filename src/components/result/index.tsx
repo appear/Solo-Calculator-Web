@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
-
-import Text from '../shared/text'
-import Container from '../shared/container'
-import Button from '../shared/button'
-import formatNumber from '../../utils/format-number'
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays'
+import { Text, Container, Button } from '../shared'
+import formatNumber from '../../utils/format-number'
 import { DAY_PRICE, CHICKEN_PRICE, PIZZA_PRICE } from './constants'
 
 interface ResultProps {

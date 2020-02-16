@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
-import Input from '../shared/input'
-import Text from '../shared/text'
-import Container from '../shared/container'
-import Button from '../shared/button'
+import Input from './input'
+import { Button, Container, Text } from '../shared'
 import dateValidator from '../../utils/data-validator'
 
 function Home() {
