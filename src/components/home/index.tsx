@@ -19,7 +19,12 @@ function Home() {
 
   return (
     <Container maxWidth={720} padding="0px 20px">
-      <Text>당신을 얼마를 아끼셨나요 ..</Text>
+      <Text size="32" bold>
+        🙈 마지막 연애 날짜를 적어주세요
+      </Text>
+      <Text size="18" color="gray700" bold>
+        솔로 계산기는 당신이 아낀 금액을 알려줍니다
+      </Text>
       <Input
         value={day}
         onChange={handleDay}

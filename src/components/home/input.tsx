@@ -25,7 +25,7 @@ export default function Input({ value, onChange, placeholder }: InputProps) {
       maskChar={null}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      placeholder={placeholder}
+      placeholder="마지막 연애 날짜를 적어주세요"
     />
   )
 }
