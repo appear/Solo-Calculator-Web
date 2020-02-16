@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
 
-import Text from '../text'
-import Container from '../container'
-import Button from '../button'
-import formatNumber from '../format-number'
+import Text from '../shared/text'
+import Container from '../shared/container'
+import Button from '../shared/button'
+import formatNumber from '../../utils/format-number'
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays'
-
-const YEAR = 365
-const YEAR_PRICE = 3900000
-const DAY_PRICE = Math.floor(YEAR_PRICE / YEAR)
-const CHICKEN_PRICE = 18000
-const PIZZA_PRICE = 7000
+import { DAY_PRICE, CHICKEN_PRICE, PIZZA_PRICE } from './constants'
 
 interface DetailProps {
   day: string
@@ -34,8 +29,8 @@ function Detail({ day }: DetailProps) {
   }
 
   return (
-    <Container maxWidth={720} padding={{ left: 20, right: 20 }}>
-      <Text margin={{ bottom: 100 }}>
+    <Container maxWidth={720} padding="0 20px">
+      <Text margin="0 0 100px 0">
         결과는 평균 커플이 사용하는 1년치 데이트 비용을 390 만원으로
         책정하였으며 일주일에 2 ~ 3 번정도 만난다는 가정하에 하루 데이트 비용(만
         육백원)으로 책정하였습니다. 치킨은 한마리에 1.8 천원을 기준으로 하였으며

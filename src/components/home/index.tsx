@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
-import Input from '../input'
-import Text from '../text'
-import Container from '../container'
-import Button from '../button'
+import Input from '../shared/input'
+import Text from '../shared/text'
+import Container from '../shared/container'
+import Button from '../shared/button'
 
 function Home() {
   const [day, setDay] = useState<string>('')
