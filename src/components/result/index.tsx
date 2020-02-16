@@ -8,7 +8,7 @@ import formatNumber from '../../utils/format-number'
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays'
 import { DAY_PRICE, CHICKEN_PRICE, PIZZA_PRICE } from './constants'
 
-interface DetailProps {
+interface ResultProps {
   day: string
 }
 
@@ -19,7 +19,7 @@ interface ResultValues {
   pizzaCount?: string
 }
 
-function Detail({ day }: DetailProps) {
+function Result({ day }: ResultProps) {
   const [result] = useState<ResultValues | null>(parseDay(day))
   const { totalDay = 0, totalPrice = 0, chickenCount = '', pizzaCount = '' } =
     result || {}
@@ -71,4 +71,4 @@ function parseDay(day: string): ResultValues | null {
   }
 }
 
-export default Detail
+export default Result

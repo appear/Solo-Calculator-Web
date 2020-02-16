@@ -1,16 +1,16 @@
 import React from 'react'
-import Detail from '../src/detail'
+import Detail from '../src/components/detail'
 import { NextPageContext } from 'next'
 
 interface DetailProps {
   day: string
 }
 
-function DetailPage({ day }: DetailProps) {
+function ResultPage({ day }: DetailProps) {
   return <Detail day={day} />
 }
 
-DetailPage.getInitialProps = async (ctx: NextPageContext) => {
+ResultPage.getInitialProps = async (ctx: NextPageContext) => {
   const {
     query: { day },
   } = ctx
@@ -18,4 +18,4 @@ DetailPage.getInitialProps = async (ctx: NextPageContext) => {
   return { day }
 }
 
-export default DetailPage
+export default ResultPage

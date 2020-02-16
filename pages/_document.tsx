@@ -7,7 +7,7 @@ import Document, {
   DocumentProps,
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import GlobalStyle from '../src/reset-style'
+import GlobalStyle from '../src/components/shared/reset-style'
 
 interface MyDocumentProps extends DocumentProps {
   styleTags?: string

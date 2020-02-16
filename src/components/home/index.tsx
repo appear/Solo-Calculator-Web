@@ -4,15 +4,19 @@ import Input from '../shared/input'
 import Text from '../shared/text'
 import Container from '../shared/container'
 import Button from '../shared/button'
+import dateValidator from '../../utils/data-validator'
 
 function Home() {
   const [day, setDay] = useState<string>('')
   const handleDay = (day: string): void => setDay(day)
 
   const handleSubmit = () => {
-    if (!day) return
+    if (!day || !dateValidator(day)) {
+      window.alert('유효한 날짜 형식을 넣어주세요')
+      return
+    }
 
-    Router.push(`/detail?day=${day}`, `/detail?day=${day}`)
+    Router.push(`/result?day=${day}`, `/result?day=${day}`)
   }
 
   return (
