@@ -16,7 +16,7 @@ function Home() {
   }
 
   return (
-    <Container maxWidth={720} padding={{ left: 20, right: 20 }}>
+    <Container maxWidth={720} padding="0px 20px">
       <Text>당신을 얼마를 아끼셨나요 ..</Text>
       <Input
         value={day}

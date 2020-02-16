@@ -7,20 +7,34 @@ import Document, {
   DocumentProps,
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import GlobalStyle from '../src/global-style'
+import GlobalStyle from '../src/reset-style'
 
 interface MyDocumentProps extends DocumentProps {
   styleTags?: string
 }
 
-class MyDocument extends Document<MyDocumentProps> {
+export default class MyDocument extends Document<MyDocumentProps> {
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx)
+    /* pre render styled component */
+    const sheet = new ServerStyleSheet()
+    const page = ctx.renderPage((App) => (props) =>
+      sheet.collectStyles(
+        <>
+          <GlobalStyle />
+          <App {...props} />
+        </>,
+      ),
+    )
+    const styleTags = sheet.getStyleElement()
+
+    return { ...initialProps, ...page, styleTags }
+  }
+
   render() {
     return (
       <html>
-        <Head>
-          {this.props.styleTags}
-          <GlobalStyle />
-        </Head>
+        <Head>{this.props.styleTags}</Head>
         <body>
           <Main />
           <NextScript />
@@ -29,17 +43,3 @@ class MyDocument extends Document<MyDocumentProps> {
     )
   }
 }
-
-MyDocument.getInitialProps = async (ctx: DocumentContext) => {
-  const initialProps = await Document.getInitialProps(ctx)
-  /* pre render styled component */
-  const sheet = new ServerStyleSheet()
-  const page = ctx.renderPage((App) => (props) =>
-    sheet.collectStyles(<App {...props} />),
-  )
-  const styleTags = sheet.getStyleElement()
-
-  return { ...initialProps, ...page, styleTags }
-}
-
-export default MyDocument
