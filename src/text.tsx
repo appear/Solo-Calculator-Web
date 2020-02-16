@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
-import { MarginPadding } from "./global-style";
+import styled, { css } from 'styled-components'
+import { MarginPadding } from './global-style'
 
 const Text = styled.div<{
-  margin?: MarginPadding;
+  margin?: MarginPadding
 }>`
   ${({ margin }) =>
     margin &&
@@ -12,6 +12,6 @@ const Text = styled.div<{
       margin-bottom: ${margin.bottom}px;
       margin-left: ${margin.left}px;
     `}
-`;
+`
 
-export default Text;
+export default Text

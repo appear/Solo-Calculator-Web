@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react'
 import Document, {
   Head,
   Main,
   NextScript,
   DocumentContext,
-  DocumentProps
-} from "next/document";
-import { ServerStyleSheet } from "styled-components";
-import GlobalStyle from "../src/global-style";
+  DocumentProps,
+} from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
+import GlobalStyle from '../src/global-style'
 
 interface MyDocumentProps extends DocumentProps {
-  styleTags?: string;
+  styleTags?: string
 }
 
 class MyDocument extends Document<MyDocumentProps> {
@@ -26,20 +26,20 @@ class MyDocument extends Document<MyDocumentProps> {
           <NextScript />
         </body>
       </html>
-    );
+    )
   }
 }
 
 MyDocument.getInitialProps = async (ctx: DocumentContext) => {
-  const initialProps = await Document.getInitialProps(ctx);
+  const initialProps = await Document.getInitialProps(ctx)
   /* pre render styled component */
-  const sheet = new ServerStyleSheet();
-  const page = ctx.renderPage(App => props =>
-    sheet.collectStyles(<App {...props} />)
-  );
-  const styleTags = sheet.getStyleElement();
+  const sheet = new ServerStyleSheet()
+  const page = ctx.renderPage((App) => (props) =>
+    sheet.collectStyles(<App {...props} />),
+  )
+  const styleTags = sheet.getStyleElement()
 
-  return { ...initialProps, ...page, styleTags };
-};
+  return { ...initialProps, ...page, styleTags }
+}
 
-export default MyDocument;
+export default MyDocument

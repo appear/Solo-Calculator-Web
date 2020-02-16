@@ -1,8 +1,8 @@
-import React from "react";
-import Home from "../src/home";
+import React from 'react'
+import Home from '../src/home'
 
 function IndexPage() {
-  return <Home />;
+  return <Home />
 }
 
-export default IndexPage;
+export default IndexPage

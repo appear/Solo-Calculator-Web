@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components";
-import { MarginPadding } from "./global-style";
+import styled, { css } from 'styled-components'
+import { MarginPadding } from './global-style'
 
 const Container = styled.div<{
-  maxWidth?: number;
-  padding?: MarginPadding;
-  margin?: MarginPadding;
+  maxWidth?: number
+  padding?: MarginPadding
+  margin?: MarginPadding
 }>`
   width: 100%;
   box-sizing: border-box;
@@ -33,6 +33,6 @@ const Container = styled.div<{
       max-width: ${maxWidth}px;
       margin: 0 auto;
     `}
-`;
+`
 
-export default Container;
+export default Container

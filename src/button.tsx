@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const Button = styled.button`
   background-color: #368fff;
@@ -11,6 +11,6 @@ const Button = styled.button`
   float: right;
   margin-top: 20px;
   letter-spacing: 0.36px;
-`;
+`
 
-export default Button;
+export default Button

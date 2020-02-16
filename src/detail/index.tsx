@@ -1,37 +1,37 @@
-import React, { useState } from "react";
-import Router from "next/router";
+import React, { useState } from 'react'
+import Router from 'next/router'
 
-import Text from "../text";
-import Container from "../container";
-import Button from "../button";
-import formatNumber from "../format-number";
-import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
+import Text from '../text'
+import Container from '../container'
+import Button from '../button'
+import formatNumber from '../format-number'
+import differenceInCalendarDays from 'date-fns/differenceInCalendarDays'
 
-const YEAR = 365;
-const YEAR_PRICE = 3900000;
-const DAY_PRICE = Math.floor(YEAR_PRICE / YEAR);
-const CHICKEN_PRICE = 18000;
-const PIZZA_PRICE = 7000;
+const YEAR = 365
+const YEAR_PRICE = 3900000
+const DAY_PRICE = Math.floor(YEAR_PRICE / YEAR)
+const CHICKEN_PRICE = 18000
+const PIZZA_PRICE = 7000
 
 interface DetailProps {
-  day: string;
+  day: string
 }
 
 interface ResultValues {
-  totalDay?: number;
-  totalPrice?: number;
-  chickenCount?: string;
-  pizzaCount?: string;
+  totalDay?: number
+  totalPrice?: number
+  chickenCount?: string
+  pizzaCount?: string
 }
 
 function Detail({ day }: DetailProps) {
-  const [result] = useState<ResultValues | null>(parseDay(day));
-  const { totalDay = 0, totalPrice = 0, chickenCount = "", pizzaCount = "" } =
-    result || {};
+  const [result] = useState<ResultValues | null>(parseDay(day))
+  const { totalDay = 0, totalPrice = 0, chickenCount = '', pizzaCount = '' } =
+    result || {}
 
   const handleSubmit = () => {
-    Router.back();
-  };
+    Router.back()
+  }
 
   return (
     <Container maxWidth={720} padding={{ left: 20, right: 20 }}>
@@ -56,24 +56,24 @@ function Detail({ day }: DetailProps) {
       )}
       <Button onClick={handleSubmit}>돌아가기</Button>
     </Container>
-  );
+  )
 }
 
 function parseDay(day: string): ResultValues | null {
-  const totalDay = differenceInCalendarDays(new Date(), new Date(day));
+  const totalDay = differenceInCalendarDays(new Date(), new Date(day))
 
   if (totalDay <= 0) {
-    return null;
+    return null
   }
 
-  const totalPrice = totalDay * DAY_PRICE;
+  const totalPrice = totalDay * DAY_PRICE
 
   return {
     totalDay,
     totalPrice: totalDay * DAY_PRICE,
     chickenCount: parseFloat(String(totalPrice / CHICKEN_PRICE)).toFixed(1),
-    pizzaCount: parseFloat(String(totalPrice / PIZZA_PRICE)).toFixed(1)
-  };
+    pizzaCount: parseFloat(String(totalPrice / PIZZA_PRICE)).toFixed(1),
+  }
 }
 
-export default Detail;
+export default Detail

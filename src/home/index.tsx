@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import Router from "next/router";
-import Input from "../input";
-import Text from "../text";
-import Container from "../container";
-import Button from "../button";
+import React, { useState } from 'react'
+import Router from 'next/router'
+import Input from '../input'
+import Text from '../text'
+import Container from '../container'
+import Button from '../button'
 
 function Home() {
-  const [day, setDay] = useState<string>("");
-  const handleDay = (day: string): void => setDay(day);
+  const [day, setDay] = useState<string>('')
+  const handleDay = (day: string): void => setDay(day)
 
   const handleSubmit = () => {
-    if (!day) return;
+    if (!day) return
 
-    Router.push(`/detail?day=${day}`, `/detail?day=${day}`);
-  };
+    Router.push(`/detail?day=${day}`, `/detail?day=${day}`)
+  }
 
   return (
     <Container maxWidth={720} padding={{ left: 20, right: 20 }}>
@@ -25,7 +25,7 @@ function Home() {
       />
       <Button onClick={handleSubmit}>알아보기</Button>
     </Container>
-  );
+  )
 }
 
-export default Home;
+export default Home
