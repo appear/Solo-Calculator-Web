@@ -6,7 +6,6 @@ import dateValidator from '../../utils/data-validator'
 
 function Home() {
   const [day, setDay] = useState<string>('')
-  const handleDay = (day: string): void => setDay(day)
 
   const handleSubmit = () => {
     if (!day || !dateValidator(day)) {
@@ -18,19 +17,20 @@ function Home() {
   }
 
   return (
-    <Container maxWidth={720} padding="0px 20px">
-      <Text size="32" bold>
-        🙈 마지막 연애 날짜를 적어주세요
-      </Text>
-      <Text size="18" color="gray700" bold>
-        솔로 계산기는 당신이 아낀 금액을 알려줍니다
-      </Text>
-      <Input
-        value={day}
-        onChange={handleDay}
-        placeholder="마지막 연애 날짜를 적어주세요"
-      />
-      <Button onClick={handleSubmit}>알아보기</Button>
+    <Container display="flex" maxWidth={720} padding="0px 20px">
+      <Container>
+        <Container margin="0 0 50px 0">
+          <Text size="32"> 🙈</Text>
+          <Text size="32" bold margin="0 0 5px 0">
+            마지막 연애 날짜를 적어주세요.
+          </Text>
+          <Text size="15" color="gray500">
+            솔로 계산기는 당신이 아낀 금액을 알려줍니다
+          </Text>
+        </Container>
+        <Input value={day} onChange={setDay} />
+        <Button onClick={handleSubmit}>계산하기</Button>
+      </Container>
     </Container>
   )
 }
